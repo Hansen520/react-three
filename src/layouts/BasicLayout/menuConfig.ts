@@ -213,6 +213,24 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "包围盒与模型大小计算",
+    path: "/box3-test",
+    icon: "TableOutlined",
+    component: "/Box3Test",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "包围盒 Box3 常用 api",
+    path: "/box3-api",
+    icon: "TableOutlined",
+    component: "/Box3Api",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };

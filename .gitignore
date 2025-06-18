@@ -9,6 +9,8 @@ dist/
 tmp/
 lib/
 
+public/
+
 # misc
 .idea/
 .vscode
