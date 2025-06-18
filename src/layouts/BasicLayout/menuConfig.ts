@@ -177,6 +177,42 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "如何加载外部模型",
+    path: "/gltf-model",
+    icon: "TableOutlined",
+    component: "/GltfModel",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "GLTF 的三种文件结构",
+    path: "/gltf-structure",
+    icon: "TableOutlined",
+    component: "/GltfStructure",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "gltf-pipeline：处理 gltf 模型的工具",
+    path: "/gltf-pipeline-test",
+    icon: "TableOutlined",
+    component: "/GltfPipelineTest",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "Draco：压缩 gltf 模型，提升性能",
+    path: "/gltf-draco-test",
+    icon: "TableOutlined",
+    component: "/GltfDracoTest",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
