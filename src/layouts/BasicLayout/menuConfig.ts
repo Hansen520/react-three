@@ -150,6 +150,33 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "顶点法线和反射原理",
+    path: "/vertex-normal",
+    icon: "TableOutlined",
+    component: "/VertexNormal",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "自定义顶点颜色实现渐变",
+    path: "/geometry-color",
+    icon: "TableOutlined",
+    component: "/GeometryColor",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "实战：颜色渐变柱状图",
+    path: "/gradient-color-bar-chart",
+    icon: "TableOutlined",
+    component: "/GradientColorBarChart",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
