@@ -249,6 +249,39 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "射线与点击选中 3D 场景物体",
+    path: "/ray-caster",
+    icon: "TableOutlined",
+    component: "/RayCaster",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "后期处理与描边发光效果",
+    path: "/post-processing",
+    icon: "TableOutlined",
+    component: "/PostProcessing",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
+
+
+// version: '3'
+
+// services:
+//   nginx:
+//     image: nginx:latest
+//     ports:
+//       - "80:80"
+//       - "443:443"
+//     volumes:
+//       - ./nginx/certs:/etc/nginx/certs
+//       - ./nginx/conf.d:/etc/nginx/conf.d
+//       - /workspace/html:/usr/share/nginx/html
+//     restart: always
