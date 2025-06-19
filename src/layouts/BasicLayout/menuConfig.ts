@@ -267,6 +267,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "各种后期处理效果",
+    path: "/all-pass",
+    icon: "TableOutlined",
+    component: "/AllPass",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };

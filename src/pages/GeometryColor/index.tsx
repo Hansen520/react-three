@@ -20,7 +20,7 @@ function GeometryColor() {
       const ambientLight = new THREE.AmbientLight();
       scene.add(ambientLight);
 
-      const axesHelper = new THREE.AxesHelper(200);
+      const axesHelper = new THREE.AxesHelper(500);
       scene.add(axesHelper);
 
       const width = mount.current!.clientWidth;
