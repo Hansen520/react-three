@@ -17,7 +17,6 @@ loader.setDRACOLoader(dracoLoader);
 
 // npx gltf-pipeline -i ./public/Michelle.glb -o ./public/Michelle2.glb -d 这个命令可以压缩
 loader.load("/glb/Michelle/Michelle2.glb", function (gltf) {
-  console.log(gltf);
   // 这里 scale.setScalar(5) 就是 scale.set(5,5,5)
   gltf.scene.scale.setScalar(5);
   mesh.add(gltf.scene);
