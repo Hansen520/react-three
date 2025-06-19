@@ -240,6 +240,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "OrbitControls 的常用属性方法",
+    path: "/orbit-controls",
+    icon: "TableOutlined",
+    component: "/OrbitControls",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
