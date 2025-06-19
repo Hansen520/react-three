@@ -231,6 +231,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "正投影相机和三种灯光的阴影",
+    path: "/orthographic-camera-shadow",
+    icon: "TableOutlined",
+    component: "/OrthographicCameraShadow",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
