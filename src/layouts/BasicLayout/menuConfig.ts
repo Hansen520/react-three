@@ -294,6 +294,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "几何体材质共用和 clone、copy",
+    path: "/material-share",
+    icon: "TableOutlined",
+    component: "/MaterialShare",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
