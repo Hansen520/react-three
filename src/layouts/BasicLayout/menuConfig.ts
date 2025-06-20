@@ -276,6 +276,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "精灵模型 Sprite 和下雨下雪效果",
+    path: "/sprite",
+    icon: "TableOutlined",
+    component: "/Sprite",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
