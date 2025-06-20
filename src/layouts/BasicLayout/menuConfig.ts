@@ -285,6 +285,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "实战：林海雪原",
+    path: "/snowy-forest",
+    icon: "TableOutlined",
+    component: "/SnowyForest",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
