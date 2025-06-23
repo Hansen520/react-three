@@ -393,6 +393,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "Canvas 画各种图案作为纹理",
+    path: "/canvas-texture",
+    icon: "TableOutlined",
+    component: "/CanvasTexture",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
