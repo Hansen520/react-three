@@ -366,6 +366,24 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "CSS2DRenderer 实现标注：给 3D 物体加标签",
+    path: "/css2d-annotation",
+    icon: "TableOutlined",
+    component: "/Css2dAnnotation",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "CSS3DRenderer 实现标注：公告栏内容",
+    path: "/css3d-annotation",
+    icon: "TableOutlined",
+    component: "/Css3dAnnotation",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
