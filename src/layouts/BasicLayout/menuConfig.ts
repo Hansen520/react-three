@@ -330,6 +330,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "实战：丝滑入场动画",
+    path: "/tube-entry-animation",
+    icon: "TableOutlined",
+    component: "/TubeEntryAnimation",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
