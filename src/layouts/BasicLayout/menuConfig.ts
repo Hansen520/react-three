@@ -321,6 +321,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "关键帧动画和模型动画播放",
+    path: "/keyframes-animation",
+    icon: "TableOutlined",
+    component: "/KeyframesAnimation",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
