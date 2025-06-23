@@ -116,7 +116,10 @@ function MaterialShare() {
           知识点
         </button>
         <div className="hidden group-hover:block absolute top-full left-0 mt-0 bg-gray-700 text-white p-3 rounded-lg shadow-xl">
-          copy 是把传入的对象的值复制给当前对象，而 clone 是创建一个新的对象。
+          <p>copy 是把传入的对象的值复制给当前对象，而 clone 是创建一个新的对象。</p>
+          <p>它有的时候很方便，比如可以批量修改这些 mesh 的材质颜色，可以设置 visible 批量隐藏。</p>
+          <p>但有的时候会有相互影响的问题，这时候 clone 一份新的 geometry 或者 material 就好了。</p>
+          <p>此外，当你想复制值的时候，可以直接用 copy 方法，比如 rotation.copy、position.copy，它会复制目标对象的值到当前对象。</p>
         </div>
       </div>
       <div ref={mount} style={{ width: "100%", height: "100%" }} />
