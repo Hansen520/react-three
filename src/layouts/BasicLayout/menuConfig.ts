@@ -303,6 +303,24 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "补间动画库 Tween.js",
+    path: "/tween-animation",
+    icon: "TableOutlined",
+    component: "/TweenAnimation",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "Tween.js 常用 API",
+    path: "/tween-all-feature",
+    icon: "TableOutlined",
+    component: "/TweenAllFeature",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };

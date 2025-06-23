@@ -54,9 +54,14 @@ function TubeTravel() {
 
   return (
     <>
-      <div>
-        然后通过改变 camera 的 position 和 lookAt 实现了镜头穿梭隧道的感觉。 相机的位置是通过 curve.getSpacedPoints
-        取的一堆均匀的点。
+      <div className="group relative">
+        <button className="absolute z-990 top-0 cursor-pointer bg-green-500 text-white px-4 py-2 rounded">
+          知识点
+        </button>
+        <div className="hidden group-hover:block absolute top-full left-0 mt-0 bg-gray-700 text-white p-3 rounded-lg shadow-xl">
+          然后通过改变 camera 的 position 和 lookAt 实现了镜头穿梭隧道的感觉。 相机的位置是通过 curve.getSpacedPoints
+          取的一堆均匀的点。
+        </div>
       </div>
       <div ref={mount} style={{ width: "100%", height: "100%" }} />
     </>
