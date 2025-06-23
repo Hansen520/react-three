@@ -339,6 +339,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "改变顶点的变形动画",
+    path: "/morph-animation",
+    icon: "TableOutlined",
+    component: "/MorphAnimation",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
