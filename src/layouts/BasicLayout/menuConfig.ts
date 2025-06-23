@@ -348,6 +348,24 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "骨骼动画：关节带动顶点运动",
+    path: "/bone-animation",
+    icon: "TableOutlined",
+    component: "/BoneAnimation",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId('three_'),
+    name: "GSAP：另一个常用动画库",
+    path: "/gsap-test",
+    icon: "TableOutlined",
+    component: "/GsapTest",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
