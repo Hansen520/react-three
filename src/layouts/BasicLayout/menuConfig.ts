@@ -384,6 +384,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId('three_'),
+    name: "Sprite 结合 canvas 实现各种形状的标注",
+    path: "/canvas-sprite-annotation",
+    icon: "TableOutlined",
+    component: "/CanvasSpriteAnnotation",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
