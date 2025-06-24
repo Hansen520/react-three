@@ -7812,6 +7812,11 @@ thenify-all@^1.0.0:
   dependencies:
     any-promise "^1.0.0"
 
+three-spritetext@^1.9.6:
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/three-spritetext/-/three-spritetext-1.9.6.tgz#f6e89dfbc158ad2f04392fc012ef390a7d7f7f99"
+  integrity sha512-+O5hGi6u4nWLefY8+Hlufd0aysWZhS2Ex61LCQVSixbYbykdPUOYYA+V+4xG4mKNDm1AsC0yHINRQS5NQb6mSg==
+
 three@^0.177.0:
   version "0.177.0"
   resolved "https://registry.yarnpkg.com/three/-/three-0.177.0.tgz#e51f2eb2b921fbab535bdfa81c403f9993b9dd83"

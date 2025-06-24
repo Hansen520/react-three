@@ -2,48 +2,48 @@
  * @Date: 2023-08-14 09:52:44
  * @Description: description
  */
-import { RouterMenus } from '@/types/index';
-import { uniqueId } from 'lodash-es';
+import { RouterMenus } from "@/types/index";
+import { uniqueId } from "lodash-es";
 
 const asideMenuConfig: RouterMenus[] = [
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "首页",
     path: "/home",
     icon: "HomeOutlined",
     component: "/Home",
-    isHidden: false, /* 隐藏此菜单 */
+    isHidden: false /* 隐藏此菜单 */,
     isParent: false,
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "第一个 3D 场景",
     path: "/first-scene",
     icon: "TableOutlined",
     component: "/FirstScene",
     isParent: false,
-    auth: [], 
+    auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "dat.gui 可视化调试",
     path: "/data-gui",
     icon: "TableOutlined",
     component: "/DataGui",
     isParent: false,
-    auth: [], 
+    auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "深入理解透视相机和视椎体",
     path: "/perspective-camera",
     icon: "TableOutlined",
     component: "/PerspectiveCamera",
     isParent: false,
-    auth: [], 
+    auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "BufferGeometry：顶点生成各种几何体",
     path: "/buffer-geometry",
     icon: "TableOutlined",
@@ -52,7 +52,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "点模型、线模型、网格模型",
     path: "/point-line-mesh",
     icon: "TableOutlined",
@@ -61,7 +61,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "实战：随机山脉地形",
     path: "/mountain-terrain",
     icon: "TableOutlined",
@@ -70,7 +70,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "材质颜色和纹理贴图",
     path: "/material-color-texture",
     icon: "TableOutlined",
@@ -79,7 +79,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "uv 坐标和 uv 动画",
     path: "/texture-uv",
     icon: "TableOutlined",
@@ -88,7 +88,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "如何画各种曲线",
     path: "/curve",
     icon: "TableOutlined",
@@ -97,7 +97,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "按照规律生成各种几何体",
     path: "/generate-geometry",
     icon: "TableOutlined",
@@ -106,7 +106,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "实战：隧道穿梭",
     path: "/tube-travel",
     icon: "TableOutlined",
@@ -115,7 +115,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "uv 动画实战：无限时空隧道",
     path: "/infinite-tunnel",
     icon: "TableOutlined",
@@ -124,7 +124,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "实战：盖房子",
     path: "/house",
     icon: "TableOutlined",
@@ -133,7 +133,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "场景遍历和世界坐标",
     path: "/scene-group",
     icon: "TableOutlined",
@@ -142,7 +142,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "各种灯光和常用 Helper",
     path: "/light-helper",
     icon: "TableOutlined",
@@ -151,7 +151,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "顶点法线和反射原理",
     path: "/vertex-normal",
     icon: "TableOutlined",
@@ -160,7 +160,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "自定义顶点颜色实现渐变",
     path: "/geometry-color",
     icon: "TableOutlined",
@@ -169,7 +169,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "实战：颜色渐变柱状图",
     path: "/gradient-color-bar-chart",
     icon: "TableOutlined",
@@ -178,7 +178,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "如何加载外部模型",
     path: "/gltf-model",
     icon: "TableOutlined",
@@ -187,7 +187,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "GLTF 的三种文件结构",
     path: "/gltf-structure",
     icon: "TableOutlined",
@@ -196,7 +196,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "gltf-pipeline：处理 gltf 模型的工具",
     path: "/gltf-pipeline-test",
     icon: "TableOutlined",
@@ -205,7 +205,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "Draco：压缩 gltf 模型，提升性能",
     path: "/gltf-draco-test",
     icon: "TableOutlined",
@@ -214,7 +214,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "包围盒与模型大小计算",
     path: "/box3-test",
     icon: "TableOutlined",
@@ -223,7 +223,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "包围盒 Box3 常用 api",
     path: "/box3-api",
     icon: "TableOutlined",
@@ -232,7 +232,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "正投影相机和三种灯光的阴影",
     path: "/orthographic-camera-shadow",
     icon: "TableOutlined",
@@ -241,7 +241,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "OrbitControls 的常用属性方法",
     path: "/orbit-controls",
     icon: "TableOutlined",
@@ -250,7 +250,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "射线与点击选中 3D 场景物体",
     path: "/ray-caster",
     icon: "TableOutlined",
@@ -259,7 +259,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "后期处理与描边发光效果",
     path: "/post-processing",
     icon: "TableOutlined",
@@ -268,7 +268,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "各种后期处理效果",
     path: "/all-pass",
     icon: "TableOutlined",
@@ -277,7 +277,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "精灵模型 Sprite 和下雨下雪效果",
     path: "/sprite",
     icon: "TableOutlined",
@@ -286,7 +286,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "实战：林海雪原",
     path: "/snowy-forest",
     icon: "TableOutlined",
@@ -295,7 +295,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "几何体材质共用和 clone、copy",
     path: "/material-share",
     icon: "TableOutlined",
@@ -304,7 +304,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "补间动画库 Tween.js",
     path: "/tween-animation",
     icon: "TableOutlined",
@@ -313,7 +313,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "Tween.js 常用 API",
     path: "/tween-all-feature",
     icon: "TableOutlined",
@@ -322,7 +322,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "关键帧动画和模型动画播放",
     path: "/keyframes-animation",
     icon: "TableOutlined",
@@ -331,7 +331,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "实战：丝滑入场动画",
     path: "/tube-entry-animation",
     icon: "TableOutlined",
@@ -340,7 +340,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "改变顶点的变形动画",
     path: "/morph-animation",
     icon: "TableOutlined",
@@ -349,7 +349,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "骨骼动画：关节带动顶点运动",
     path: "/bone-animation",
     icon: "TableOutlined",
@@ -358,7 +358,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "GSAP：另一个常用动画库",
     path: "/gsap-test",
     icon: "TableOutlined",
@@ -367,7 +367,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "CSS2DRenderer 实现标注：给 3D 物体加标签",
     path: "/css2d-annotation",
     icon: "TableOutlined",
@@ -376,7 +376,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "CSS3DRenderer 实现标注：公告栏内容",
     path: "/css3d-annotation",
     icon: "TableOutlined",
@@ -385,7 +385,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "Sprite 结合 canvas 实现各种形状的标注",
     path: "/canvas-sprite-annotation",
     icon: "TableOutlined",
@@ -394,7 +394,7 @@ const asideMenuConfig: RouterMenus[] = [
     auth: [],
   },
   {
-    id: uniqueId('three_'),
+    id: uniqueId("three_"),
     name: "Canvas 画各种图案作为纹理",
     path: "/canvas-texture",
     icon: "TableOutlined",
@@ -402,10 +402,18 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId("three_"),
+    name: "SpriteText：开箱即用的文字组件",
+    path: "/sprite-text-test",
+    icon: "TableOutlined",
+    component: "/SpriteTextTest",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
-
 
 // version: '3'
 
