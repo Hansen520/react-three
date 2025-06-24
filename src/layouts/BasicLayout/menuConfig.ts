@@ -411,6 +411,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId("three_"),
+    name: "实战：数字雨",
+    path: "/number-rain",
+    icon: "TableOutlined",
+    component: "/NumberRain",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
