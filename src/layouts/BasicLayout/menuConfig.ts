@@ -420,6 +420,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId("three_"),
+    name: "实战：3D 饼图",
+    path: "/3d-pie-chart",
+    icon: "TableOutlined",
+    component: "/PieChart",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
