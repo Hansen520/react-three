@@ -429,6 +429,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId("three_"),
+    name: "向量点积实现锐角判断",
+    path: "/vector-dot",
+    icon: "TableOutlined",
+    component: "/VectorDot",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
