@@ -449,6 +449,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "音乐频谱可视化",
+    path: "/audio-analyser",
+    icon: "TableOutlined",
+    component: "/AudioAnalyser",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
