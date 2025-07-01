@@ -70,8 +70,8 @@ function AllPass() {
       // composer.addPass(glitchPass);
 
       // * 示例二
-      // const afterimagePass = new AfterimagePass();
-      // composer.addPass(afterimagePass);
+      const afterimagePass = new AfterimagePass();
+      composer.addPass(afterimagePass);
 
       // * 示例三
       // 第一参数是强度，第二个参数设置 true 就是黑白电视的效果：
@@ -79,11 +79,11 @@ function AllPass() {
       // composer.addPass(filmPass);
 
       // * 示例四 发光
-      // const v = new THREE.Vector2(width, height);
-      // const bloomPass = new UnrealBloomPass(v, 0, 0, 0);
-      // bloomPass.strength = 1;
-      // bloomPass.radius = 10;
-      // composer.addPass(bloomPass);
+      const _v = new THREE.Vector2(width, height);
+      const bloomPass = new UnrealBloomPass(_v, 0, 0, 0);
+      bloomPass.strength = 0.3;
+      bloomPass.radius = 1;
+      composer.addPass(bloomPass);
 
       // * 示例五
       // const halftonePass = new HalftonePass({
