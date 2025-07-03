@@ -474,7 +474,24 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
-  
+  {
+    id: uniqueId("three_"),
+    name: "MatCap 材质：通过光照球实现伪光照效果",
+    path: "/matcap-material",
+    icon: "TableOutlined",
+    component: "/MatcapMaterial",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
+    name: "HDR：亮度范围更广的全景图",
+    path: "/hdr-background",
+    icon: "TableOutlined",
+    component: "/HdrBackground",
+    isParent: false,
+    auth: [],
+  },
   {
     id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
