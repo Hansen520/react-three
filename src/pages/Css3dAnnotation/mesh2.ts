@@ -28,6 +28,7 @@ ele.style.transformStyle = 'preserve-3d';
 ele.style.backfaceVisibility = 'hidden';
 
 const obj = new CSS3DObject(ele);
+obj.rotation.set(0, Math.PI / 100, 0);
 obj.position.y = 0;
 mesh.add(obj);
 

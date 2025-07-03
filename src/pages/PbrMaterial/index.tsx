@@ -1,15 +1,14 @@
 /*
- * @Date: 2025-06-23 16:16:26
+ * @Date: 2025-07-03 15:31:22
  * @Description: description
  */
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import mesh from "./mesh";
-import { CSS3DRenderer } from "three/examples/jsm/Addons.js";
-import mesh2 from "./mesh2";
+import mesh2 from "./mesh3";
 
-function Css3DAnnotation() {
+function PbrMaterial() {
   const mount = useRef<HTMLDivElement>(null);
   const scene = new THREE.Scene();
 
@@ -17,6 +16,12 @@ function Css3DAnnotation() {
     {
       // scene.add(mesh);
       scene.add(mesh2);
+
+      // 设备背景天空图
+      const textureCube = new THREE.CubeTextureLoader()
+        .setPath("/forest/")
+        .load(["px.png", "nx.png", "py.png", "ny.png", "pz.png", "nz.png"]);
+      scene.background = textureCube;
 
       const directionLight = new THREE.DirectionalLight(0xffffff, 2);
       directionLight.position.set(500, 400, 300);
@@ -38,23 +43,7 @@ function Css3DAnnotation() {
       const renderer = new THREE.WebGLRenderer();
       renderer.setSize(width, height);
 
-      // 3D文字
-      const css3Renderer = new CSS3DRenderer();
-      css3Renderer.setSize(width, height);
-
-      const div = document.createElement("div");
-      div.style.position = "relative";
-      div.appendChild(css3Renderer.domElement);
-      css3Renderer.domElement.style.position = "absolute";
-      css3Renderer.domElement.style.left = "0px";
-      css3Renderer.domElement.style.top = "0px";
-      css3Renderer.domElement.style.pointerEvents = "none";
-
-      // div.appendChild(renderer.domElement);
-      (mount.current as any).appendChild(div);
-
       function render() {
-        css3Renderer.render(scene, camera);
         renderer.render(scene, camera);
         requestAnimationFrame(render);
       }
@@ -67,9 +56,9 @@ function Css3DAnnotation() {
 
   return (
     <>
-      <div ref={mount} style={{ width: "100%", height: "100%", transformStyle: "preserve-3d", transform: "rotateZ(0deg)"}} />
+      <div ref={mount} style={{ width: "100%", height: "100%" }} />
     </>
   );
 }
 
-export default Css3DAnnotation;
+export default PbrMaterial;
