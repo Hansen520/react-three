@@ -1,12 +1,8 @@
-/*
- * @Date: 2025-07-03 15:31:22
- * @Description: description
- */
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import mesh from "./mesh";
-import mesh2 from "./mesh3";
+import mesh2 from "./mesh5";
 
 function PbrMaterial() {
   const mount = useRef<HTMLDivElement>(null);
