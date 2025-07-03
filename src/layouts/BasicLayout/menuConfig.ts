@@ -467,6 +467,16 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "PBR 材质：逼真的金属、塑料、磨砂效果",
+    path: "/car-config",
+    icon: "TableOutlined",
+    component: "/CarConfig",
+    isParent: false,
+    auth: [],
+  },
+  
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
