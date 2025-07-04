@@ -494,6 +494,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "CubeCamera 实现镜子效果",
+    path: "/cube-camera-envmap",
+    icon: "TableOutlined",
+    component: "/CubeCameraEnvmap",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
