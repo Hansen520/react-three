@@ -521,6 +521,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "实战：3D 音乐播放器",
+    path: "/3d-music-player",
+    icon: "TableOutlined",
+    component: "/ThreeDMusicPlayer",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
