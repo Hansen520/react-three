@@ -512,6 +512,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "实战：练舞房",
+    path: "/dancing-mirror",
+    icon: "TableOutlined",
+    component: "/DancingMirror",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
