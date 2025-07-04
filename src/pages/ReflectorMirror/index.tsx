@@ -1,20 +1,21 @@
 /*
- * @Date: 2025-07-04 11:03:13
+ * @Date: 2025-07-04 11:27:17
  * @Description: description
  */
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import mesh, { ballTween, cubeCamera } from "./mesh";
+import mesh, { cubeCamera, cubeCamera2 } from "./mesh";
+import mesh2 from "./mesh2";
 
-function CubeCameraEnvmap() {
+function ReflectorMirror() {
   const mount = useRef<HTMLDivElement>(null);
   const scene = new THREE.Scene();
 
   useEffect(() => {
     {
-      scene.add(mesh);
-      // scene.add(mesh2);
+      // scene.add(mesh);
+      scene.add(mesh2);
 
       const textureCube = new THREE.CubeTextureLoader()
         .setPath("/city/")
@@ -29,31 +30,35 @@ function CubeCameraEnvmap() {
       scene.add(ambientLight);
 
       const axesHelper = new THREE.AxesHelper(500);
-      scene.add(axesHelper);
+      // scene.add(axesHelper);
 
       const width = mount.current!.clientWidth;
       const height = mount.current!.clientHeight;
 
       const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 10000);
-      camera.position.set(500, 1000, 1000);
+      camera.position.set(300, 300, 300);
       camera.lookAt(0, 0, 0);
 
-      const renderer = new THREE.WebGLRenderer();
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+      });
       renderer.setSize(width, height);
 
-      function render(time: number) {
-        // 镜子
-        cubeCamera.position.copy(mesh.children[0].position);
-        cubeCamera.update(renderer, scene);
+      // const mirror1: any = mesh.getObjectByName("mirror1");
+      // const mirror2: any = mesh.getObjectByName("mirror2");
 
-        // tween
-        ballTween.update(time);
+      function render() {
+        // cubeCamera.position.copy(mirror1.position);
+        // cubeCamera.update(renderer, scene);
+
+        // cubeCamera2.position.copy(mirror2.position);
+        // cubeCamera2.update(renderer, scene);
 
         renderer.render(scene, camera);
         requestAnimationFrame(render);
       }
 
-      render(0);
+      render();
       const controls = new OrbitControls(camera, renderer.domElement);
       (mount.current as any).appendChild(renderer.domElement);
     }
@@ -66,8 +71,8 @@ function CubeCameraEnvmap() {
           知识点
         </button>
         <div className="hidden group-hover:block absolute top-full left-0 mt-0 bg-gray-700 text-white p-3 rounded-lg shadow-xl">
-          不能用 CubeTextureLoader 加载的图片作为环境贴图 envMap 了，而是要用 CubeCamera 来在物体的位置实时拍摄 6 张图。
-          CubeCamera 拍摄的照片存在 WebGLCubeRenderTarget 上，size 一般是 2 的多少次方，比如 64、128、256、512 等。
+          Reflector 是专门用来做镜面效果的，它可以实现两个镜子的相互反射，比较逼真。 所以，如果是设置 envMap，可以用
+          CubeCamera 来拍，比如汽车车身、车窗反射的光线。但如果是专门实现镜子，还是用 Reflector 来做更好。
         </div>
       </div>
       <div ref={mount} style={{ width: "100%", height: "100%" }} />
@@ -75,4 +80,4 @@ function CubeCameraEnvmap() {
   );
 }
 
-export default CubeCameraEnvmap;
+export default ReflectorMirror;

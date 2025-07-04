@@ -503,6 +503,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "Reflector 实现镜子效果",
+    path: "/reflector-mirror",
+    icon: "TableOutlined",
+    component: "/ReflectorMirror",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
