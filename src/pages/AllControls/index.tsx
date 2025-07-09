@@ -5,7 +5,7 @@
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import mesh from "./mesh";
+// import mesh from "./mesh";
 // import mesh2 from "./mesh2";
 
 function AllControls() {
@@ -14,7 +14,7 @@ function AllControls() {
 
   useEffect(() => {
     {
-      scene.add(mesh);
+      // scene.add(mesh);
       // scene.add(mesh2);
 
       const directionLight = new THREE.DirectionalLight(0xffffff, 2);
