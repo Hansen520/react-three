@@ -537,6 +537,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId("three_"),
+    name: "物理引擎 cannon：实现真实世界的物理现象",
+    path: "/cannon-world",
+    icon: "TableOutlined",
+    component: "/CannonWorld",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
