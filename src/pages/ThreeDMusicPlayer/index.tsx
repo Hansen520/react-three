@@ -7,9 +7,13 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import player from "./player";
 import analyser from "./analyser";
+import note from "./note";
 import lyric, { lyricPositions } from "./lyric";
 import { map, chunk, sum } from "lodash-es";
 import { Easing, Group, Tween } from "@tweenjs/tween.js";
+import { SimplexNoise } from "three/examples/jsm/Addons.js";
+
+
 // import lyricList from "./lyric";
 // import mesh2 from "./mesh2";
 function ThreeDMusicPlayer() {
@@ -31,8 +35,14 @@ function ThreeDMusicPlayer() {
       player.position.x = 800;
       player.position.z = 600;
       scene.add(analyser);
+      scene.add(note);
       scene.add(lyric);
+      lyric.position.y = 350;
+      analyser.position.y = -200;
+      analyser.scale.z = 0.5;
+      analyser.rotateX(Math.PI /8);
 
+      
       const directionLight = new THREE.DirectionalLight(0xffffff, 2);
       directionLight.position.set(500, 400, 300);
       scene.add(directionLight);
@@ -46,8 +56,8 @@ function ThreeDMusicPlayer() {
       const width = mount.current!.clientWidth;
       const height = mount.current!.clientHeight;
 
-      const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 10000);
-      camera.position.set(500, 600, 800);
+      const camera = new THREE.PerspectiveCamera(60, width / height, 300, 10000);
+      camera.position.set(0, 800, 1500);
       camera.lookAt(0, 0, 0);
 
       const renderer = new THREE.WebGLRenderer({
@@ -62,7 +72,7 @@ function ThreeDMusicPlayer() {
         // 将频率数据分成50个块
         const sumArr = map(chunk(frequencyData, 50), (arr: any) => {
           return sum(arr);
-        });
+        }).reverse();
 
         // 细琢磨
         for (let i = 0; i < analyser.children.length; i++) {
@@ -78,8 +88,9 @@ function ThreeDMusicPlayer() {
         if (lyricPositions.length && audio.isPlaying) {
           const mSeconds = Math.floor(audio.context.currentTime * 1000);
           if (i >= lyricPositions.length - 1) {
+            // 复原到原位
             lyric.position.z = lyricPositions[lyricPositions.length - 1][1];
-          } else if (mSeconds > lyricPositions[i][0] && mSeconds < lyricPositions[i + 1][0]) {
+          } else if (mSeconds > lyricPositions[i][0] && mSeconds < lyricPositions[i + 1][0]) { // 在歌曲范围内
             const tween = new Tween(lyric.position)
               .to(
                 {
@@ -99,7 +110,7 @@ function ThreeDMusicPlayer() {
             // i++;
           }
         }
-        
+
         tweenGroup.update();
         updateHeight(); // 动态变化高度
         renderer.render(scene, camera);

@@ -55,7 +55,7 @@ fetch('/audio-api_public_superman.lrc').then((res) => {
             lyricPositions[i] = [time, i * 1000];
         }
 
-        console.log(lyricPositions, 57);
+        // console.log(lyricPositions, 57);
 
         const lyricItem = createLyricItem(lyric.slice(10));
         lyricList.add(lyricItem);
