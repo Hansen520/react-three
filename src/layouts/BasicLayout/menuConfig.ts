@@ -530,6 +530,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "Three.js 的各种控制器 Controls",
+    path: "/all-controls",
+    icon: "TableOutlined",
+    component: "/AllControls",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
