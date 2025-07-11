@@ -557,6 +557,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "实战：3D 电脑",
+    path: "/css3d-computer",
+    icon: "TableOutlined",
+    component: "/Css3dComputer",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "向量点积实现锐角判断",
     path: "/vector-dot",
     icon: "TableOutlined",
