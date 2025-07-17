@@ -2,15 +2,21 @@
  * @Date: 2025-07-11 17:33:11
  * @Description: description/
  */
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { CSS3DRenderer } from "three/examples/jsm/Addons.js";
 import mesh from "./mesh";
+import gsap from "gsap";
 // import mesh2 from "./mesh2";
 
 function Css3DComputer() {
   const mount = useRef<HTMLDivElement>(null);
   const scene = new THREE.Scene();
+
+  const [open, setOpen] = useState(false);
+
+  const cameraRef = useRef<any>();
 
   useEffect(() => {
     {
@@ -45,6 +51,7 @@ function Css3DComputer() {
       const camera = new THREE.PerspectiveCamera(60, width / height, 1, 10000);
       camera.position.set(1200, 500, 0);
       camera.lookAt(0, 100, 0);
+      cameraRef.current = camera;
 
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -56,15 +63,29 @@ function Css3DComputer() {
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.target.set(0, 100, 0); // 设置完lookat后要同时设置target
 
+      // (mount.current as any).appendChild(renderer.domElement);
+      const css3Renderer = new CSS3DRenderer();
+      css3Renderer.setSize(width, height);
+
+      const div = document.createElement("div");
+      div.style.position = "relative";
+      div.appendChild(css3Renderer.domElement);
+      css3Renderer.domElement.style.position = "absolute";
+      css3Renderer.domElement.style.top = "0";
+      css3Renderer.domElement.style.left = "0";
+      css3Renderer.domElement.style.pointerEvents = "none";
+      // mount.current!.appendChild(div);
+      div.appendChild(renderer.domElement);
+      (mount.current as any).appendChild(div);
+
       function render(time = 0) {
         controls.update(time);
         renderer.render(scene, camera);
+        css3Renderer.render(scene, camera);
         requestAnimationFrame(render);
       }
 
       render(0);
-
-      (mount.current as any).appendChild(renderer.domElement);
 
       window.onresize = function () {
         const width = mount.current!.clientWidth;
@@ -78,9 +99,80 @@ function Css3DComputer() {
     }
   }, []);
 
+  useEffect(() => {
+    const ele: any = document.querySelector(".appComputer");
+    const handler = () => {
+      setOpen(true);
+      // cameraRef.current!.position.set(500, 100, 0);
+      gsap.to(cameraRef.current!.position, {
+        x: 500,
+        y: 100,
+        z: 0,
+        duration: 1,
+      });
+    };
+    const handler2 = () => {
+      setOpen(false);
+      cameraRef.current!.position.set(1200, 500, 0);
+    };
+    ele.addEventListener("click", handler);
+    document.addEventListener("click", handler2);
+
+    return () => {
+      ele.removeEventListener("click", handler);
+      document.removeEventListener("click", handler2);
+    };
+  }, []);
+
   return (
     <>
-      <div ref={mount} style={{ width: "100%", height: "100%" }} />
+      <div ref={mount} style={{ width: "100%", height: "100%", transformStyle: "preserve-3d" }} />
+      <div
+        id="desktop"
+        className="appComputer"
+        style={{ display: "none", width: 600, height: 1100, background: "pink", backfaceVisibility: "hidden" }}
+      >
+        <img
+          src="/computerBg.png"
+          style={{ position: "absolute", left: -250, top: 250, width: 1100, height: 600, rotate: "-90deg" }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: 50,
+            top: 900,
+            width: 100,
+            height: 100,
+            rotate: "-90deg",
+            border: "1px solid red",
+          }}
+        >
+          <div
+            style={{
+              width: 50,
+              height: 50,
+              background: "url('/googleLogo.png')",
+              translate: "50% 0",
+              backgroundSize: "cover",
+            }}
+          ></div>
+          <div style={{ fontSize: 30, color: "#fff" }} onDoubleClick={() => setOpen(true)}>
+            浏览器
+          </div>
+        </div>
+        <iframe
+          style={{
+            display: open ? "block" : "none",
+            width: 900,
+            height: 600,
+            position: "absolute",
+            left: -150,
+            top: 250,
+            rotate: "-90deg",
+          }}
+          src="https://sogou.com"
+        ></iframe>
+      </div>
     </>
   );
 }
