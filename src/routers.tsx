@@ -14,6 +14,9 @@ const Login = lazy(() => import(/* chunkName: Login */ "@/pages/Login"));
 const NotFound = lazy(() => import(/* chunkName: NotFound */ "@/components/NotFound"));
 const NotAuth = lazy(() => import(/* chunkName: NotAuth */ "@/components/NotAuth"));
 
+const DWebpage = lazy(() => import(/* chunkName: DWebpage */ "@/pages/3DWebpage"));
+
+
 const modules: any = import.meta.glob("./pages/**/*.tsx");
 const formatRoute = function (routerMenu: any, menu: any = []) {
   for (let i = 0; i < routerMenu.length; i++) {
@@ -48,6 +51,15 @@ const routers = [
     element: (
       <Suspense fallback={<Skeleton />}>
         <Login />
+      </Suspense>
+    ),
+  },
+  // 全屏
+  {
+    path: "/3d-webpage",
+    element: (
+      <Suspense fallback={<Skeleton />}>
+        <DWebpage />
       </Suspense>
     ),
   },

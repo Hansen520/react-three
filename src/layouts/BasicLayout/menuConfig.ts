@@ -591,6 +591,15 @@ const asideMenuConfig: RouterMenus[] = [
     isParent: false,
     auth: [],
   },
+  {
+    id: uniqueId("three_"),
+    name: "全屏滚动官网",
+    path: "/3d-webpage",
+    icon: "TableOutlined",
+    component: "/3DWebpage",
+    isParent: false,
+    auth: [],
+  },
 ];
 console.log(asideMenuConfig, 46);
 export { asideMenuConfig };
