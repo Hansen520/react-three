@@ -593,6 +593,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "GeoJson 和地图绘制",
+    path: "/geojson-map",
+    icon: "TableOutlined",
+    component: "/GeojsonMap",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "全屏滚动官网",
     path: "/3d-webpage",
     icon: "TableOutlined",
