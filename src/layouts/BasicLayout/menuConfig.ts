@@ -98,6 +98,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "实战：云雷纹",
+    path: "/cloudscape-figure",
+    icon: "TableOutlined",
+    component: "/CloudscapeFigure",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "按照规律生成各种几何体",
     path: "/generate-geometry",
     icon: "TableOutlined",

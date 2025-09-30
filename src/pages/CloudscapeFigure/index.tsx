@@ -8,43 +8,42 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import mesh from "./mesh";
 // import mesh2 from "./mesh2";
 
-function CloudscapeFigure() {
+function CarConfig() {
   const mount = useRef<HTMLDivElement>(null);
   const scene = new THREE.Scene();
 
   useEffect(() => {
     {
       scene.add(mesh);
-      // scene.add(mesh2);
 
-      const light = new THREE.DirectionalLight(0xffffff);
-      light.position.set(500, 300, 600);
-      scene.add(light);
+      const directionLight = new THREE.DirectionalLight(0xffffff, 1);
+      directionLight.position.set(100, 100, 100);
+      scene.add(directionLight);
 
-      const light2 = new THREE.AmbientLight();
-      scene.add(light2);
+      const ambientLight = new THREE.AmbientLight();
+      scene.add(ambientLight);
 
-      // const ambientLight = new THREE.AmbientLight();
-      // scene.add(ambientLight);
-
-      const axesHelper = new THREE.AxesHelper(1000);
+      const axesHelper = new THREE.AxesHelper(500);
       scene.add(axesHelper);
 
       const width = mount.current!.clientWidth;
       const height = mount.current!.clientHeight;
 
       const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 10000);
-      camera.position.set(100, 100, 100);
+      camera.position.set(0, 200, 600);
       camera.lookAt(0, 0, 0);
 
-      const renderer = new THREE.WebGLRenderer({
-        antialias: true
-      });
+      const renderer = new THREE.WebGLRenderer();
       renderer.setSize(width, height);
 
       function render() {
         renderer.render(scene, camera);
         requestAnimationFrame(render);
+
+        mesh.children.forEach((item, index) => {
+            const flag = index % 2 === 0 ? 1 : -1;
+            item.rotation.z += 0.001 * index * flag;
+        })
       }
 
       render();
@@ -70,4 +69,4 @@ function CloudscapeFigure() {
   );
 }
 
-export default CloudscapeFigure;
+export default CarConfig;
