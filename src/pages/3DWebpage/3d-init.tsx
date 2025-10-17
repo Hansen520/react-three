@@ -40,7 +40,7 @@ export function init(dom: HTMLElement) {
         camera.position.y = -pageNo * 500; // 滚动条位置与相机位置关联, 滚动的关键
 
 
-        if (pageNo >= 3 && pageNo < 5.5) {
+        if (pageNo >= 4 && pageNo < 6.5) {
             camera.position.y = -2000;
         }
 

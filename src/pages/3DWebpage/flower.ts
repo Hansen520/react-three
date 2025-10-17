@@ -28,8 +28,8 @@ loader.load("/glb/Michelle/Michelle.glb", function (gltf) {
         mixer.update(delta);
 
         const pageNo = Math.round(window.scrollY / window.innerHeight);
-        if (pageNo === 3) { // 当滚动到第三页时，播放动画
-            const percent = window.scrollY / window.innerHeight - 2.5
+        if (pageNo >= 3.5 && pageNo <= 6.5) { // 当滚动到第三页时，播放动画
+            const percent = (window.scrollY / window.innerHeight - 3.5) / 3
             clipAction.time = gltf.animations[0].duration * percent;
 
             console.log(percent)
