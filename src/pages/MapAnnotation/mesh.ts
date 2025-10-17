@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { geoMercator } from 'd3-geo';
-import SpriteText from 'three-spritetext'
+import SpriteText from 'three-spritetext';
 
 const chinaMap = new THREE.Group();
 
