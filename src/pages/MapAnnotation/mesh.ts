@@ -63,7 +63,7 @@ loader.load('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json', func
         posName.borderColor = 'orange';
 
         posName.position.set(0, 3, 0);
-        // annotation.add(posName);
+        // annotation.add(posName);因为他死了就直接去执行。
 
         chinaMap.add(annotation);
 

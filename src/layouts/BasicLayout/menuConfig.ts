@@ -611,6 +611,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "全国人口柱状图",
+    path: "/china-population-bar-chart",
+    icon: "TableOutlined",
+    component: "/ChinaPopulationBarChart",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "全屏滚动官网",
     path: "/3d-webpage",
     icon: "TableOutlined",
