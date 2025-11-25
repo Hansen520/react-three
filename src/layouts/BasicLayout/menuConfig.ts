@@ -629,6 +629,15 @@ const asideMenuConfig: RouterMenus[] = [
   },
   {
     id: uniqueId("three_"),
+    name: "酷家乐装修编辑器",
+    path: "/home-decoration-editor",
+    icon: "TableOutlined",
+    component: "/HomeDecorationEditor",
+    isParent: false,
+    auth: [],
+  },
+  {
+    id: uniqueId("three_"),
     name: "地图飞线",
     path: "/map-flyline",
     icon: "TableOutlined",

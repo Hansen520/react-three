@@ -15,6 +15,7 @@ const NotFound = lazy(() => import(/* chunkName: NotFound */ "@/components/NotFo
 const NotAuth = lazy(() => import(/* chunkName: NotAuth */ "@/components/NotAuth"));
 
 const DWebpage = lazy(() => import(/* chunkName: DWebpage */ "@/pages/3DWebpage"));
+const HomeDecorationEditor = lazy(() => import(/* chunkName: HomeDecorationEditor */ "@/pages/HomeDecorationEditor"));
 
 
 const modules: any = import.meta.glob("./pages/**/*.tsx");
@@ -60,6 +61,15 @@ const routers = [
     element: (
       <Suspense fallback={<Skeleton />}>
         <DWebpage />
+      </Suspense>
+    ),
+  },
+  // 酷家乐
+  {
+    path: "/home-decoration-editor",
+    element: (
+      <Suspense fallback={<Skeleton />}>
+        <HomeDecorationEditor />
       </Suspense>
     ),
   },
