@@ -4,6 +4,31 @@ import { init2D } from "./init-2d";
 import { Button } from "antd";
 import * as THREE from "three";
 import { useHouseStore } from "@/store/index";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+let winModel: { model: THREE.Group; size: THREE.Vector3 } | null = null;
+
+async function loadWindow() {
+  if (winModel !== null) {
+    return winModel;
+  } else {
+    const group = new THREE.Group();
+    const loader = new GLTFLoader();
+    const gltf = await loader.loadAsync("/glb/window.glb");
+    group.add(gltf.scene);
+
+    const box = new THREE.Box3();
+    box.expandByObject(gltf.scene);
+
+    const size = box.getSize(new THREE.Vector3());
+    console.log("size", size);
+    winModel = {
+      model: group,
+      size,
+    };
+    return winModel;
+  }
+}
 
 function Main() {
   const [curMode, setCurMode] = useState("2d");
@@ -58,7 +83,7 @@ function Main() {
       shape.lineTo(item.left.x, item.left.z + item.height);
       shape.lineTo(item.left.x, item.left.z);
 
-      item.windows.forEach((win) => {
+      item.windows.forEach(async (win) => {
         const path = new THREE.Path();
 
         const { x, z } = win.leftBottomPosition;
@@ -69,6 +94,14 @@ function Main() {
         path.lineTo(x, z + win.height);
         path.lineTo(x, z);
         shape.holes.push(path);
+
+        const { model, size } = await loadWindow();
+        model.position.x = (item.right.x - item.left.x) / 2;
+        model.position.y = item.height / 2;
+        model.scale.set(win.width / size.x, win.height / size.y, 1);
+
+        // model.scale.setScalar(200);
+        scene.add(model);
       });
 
       const geometry = new THREE.ExtrudeGeometry(shape, {
