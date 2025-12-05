@@ -4,7 +4,6 @@ import Menu from "./wight/Menu";
 import Main from "./wight/Main";
 import Properties from "./wight/Properties";
 import "./index.less";
-
 // import mesh from "./mesh";
 
 function HomeDecorationEditor() {

@@ -77,11 +77,16 @@ function Main() {
     const scene = scene3DRef.current!;
     const walls = data.walls.map((item) => {
       const shape = new THREE.Shape();
-      shape.moveTo(item.left.x, item.left.z);
-      shape.lineTo(item.right.x, item.right.z);
-      shape.lineTo(item.right.x, item.right.z + item.height);
-      shape.lineTo(item.left.x, item.left.z + item.height);
-      shape.lineTo(item.left.x, item.left.z);
+      shape.moveTo(0, 0);
+      shape.lineTo(0, item.height);
+      shape.lineTo(item.width, item.height);
+      shape.lineTo(item.width, 0);
+      shape.lineTo(0, 0);
+      // shape.moveTo(item.left.x, item.left.z);
+      // shape.lineTo(item.right.x, item.right.z);
+      // shape.lineTo(item.right.x, item.right.z + item.height);
+      // shape.lineTo(item.left.x, item.left.z + item.height);
+      // shape.lineTo(item.left.x, item.left.z);
 
       item.windows.forEach(async (win) => {
         const path = new THREE.Path();
@@ -96,12 +101,16 @@ function Main() {
         shape.holes.push(path);
 
         const { model, size } = await loadWindow();
-        model.position.x = (item.right.x - item.left.x) / 2;
+        // model.position.x = (item.right.x - item.left.x) / 2;
+        // model.position.y = item.height / 2;
+        model.position.x = item.width / 2;
         model.position.y = item.height / 2;
-        model.scale.set(win.width / size.x, win.height / size.y, 1);
+        // model.position.z = item.position.z;
 
+        model.scale.set(win.width / size.x, win.height / size.y, 1);
         // model.scale.setScalar(200);
-        scene.add(model);
+        // scene.add(model);
+        wall.add(model);
       });
 
       const geometry = new THREE.ExtrudeGeometry(shape, {
@@ -111,7 +120,11 @@ function Main() {
         color: "white",
       });
       const wall = new THREE.Mesh(geometry, material);
+      wall.position.set(item.position.x, item.position.y, item.position.z);
       // wall.rotateX(-Math.PI/2);
+      if (item.rotationY) {
+        wall.rotation.y = item.rotationY;
+      }
       return wall;
     });
 
