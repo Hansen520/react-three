@@ -15,7 +15,7 @@ interface Wall {
   height: number;
   depth: number;
   rotationY?: number;
-  windows: Array<{
+  windows?: Array<{
     leftBottomPosition: {
       left: number;
       bottom: number;
@@ -23,6 +23,16 @@ interface Wall {
     width: number;
     height: number;
   }>;
+  doors?: [
+    {
+      leftBottomPosition: {
+        left: number;
+        bottom: number;
+      };
+      width: number;
+      height: number;
+    },
+  ];
 }
 
 interface State {
@@ -45,8 +55,8 @@ const useHouseStore = create<State>((set, get) => {
           windows: [
             {
               leftBottomPosition: {
-                x: 100,
-                z: 100,
+                left: 100,
+                bottom: 100,
               },
               width: 600,
               height: 300,
@@ -63,8 +73,8 @@ const useHouseStore = create<State>((set, get) => {
           windows: [
             {
               leftBottomPosition: {
-                x: 100,
-                z: 100,
+                left: 100,
+                bottom: 100,
               },
               width: 600,
               height: 300,
@@ -82,8 +92,8 @@ const useHouseStore = create<State>((set, get) => {
           windows: [
             // {
             //   leftBottomPosition: {
-            //     x: 100,
-            //     z: 100,
+            //     left: 100,
+            //     bottom: 100,
             //   },
             //   width: 600,
             //   height: 300,
@@ -107,6 +117,16 @@ const useHouseStore = create<State>((set, get) => {
             //   width: 600,
             //   height: 300,
             // },
+          ],
+          doors: [
+            {
+              leftBottomPosition: {
+                left: 200,
+                bottom: 20,
+              },
+              width: 300,
+              height: 400,
+            },
           ],
         },
       ],

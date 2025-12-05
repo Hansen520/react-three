@@ -7,6 +7,7 @@ import { useHouseStore } from "@/store/index";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
 let winModel: { model: THREE.Group; size: THREE.Vector3 } | null = null;
+let doorModel: { model: THREE.Group; size: THREE.Vector3 } | null = null;
 
 async function loadWindow() {
   if (winModel !== null) {
@@ -27,6 +28,27 @@ async function loadWindow() {
       size,
     };
     return winModel;
+  }
+}
+async function loadDoor() {
+  if (doorModel !== null) {
+    return doorModel;
+  } else {
+    const group = new THREE.Group();
+    const loader = new GLTFLoader();
+    const gltf = await loader.loadAsync("/glb/door.glb");
+    group.add(gltf.scene);
+
+    const box = new THREE.Box3();
+    box.expandByObject(gltf.scene);
+
+    const size = box.getSize(new THREE.Vector3());
+    // console.log('size', size)
+    doorModel = {
+      model: group,
+      size,
+    };
+    return doorModel;
   }
 }
 
@@ -88,28 +110,51 @@ function Main() {
       // shape.lineTo(item.left.x, item.left.z + item.height);
       // shape.lineTo(item.left.x, item.left.z);
 
-      item.windows.forEach(async (win) => {
+      item.windows?.forEach(async (win) => {
         const path = new THREE.Path();
 
-        const { x, z } = win.leftBottomPosition;
+        const { left, bottom } = win.leftBottomPosition;
 
-        path.moveTo(x, z);
-        path.lineTo(x + win.width, z);
-        path.lineTo(x + win.width, z + win.height);
-        path.lineTo(x, z + win.height);
-        path.lineTo(x, z);
+        path.moveTo(left, bottom);
+        path.lineTo(left + win.width, bottom);
+        path.lineTo(left + win.width, bottom + win.height);
+        path.lineTo(left, bottom + win.height);
+        path.lineTo(left, bottom);
         shape.holes.push(path);
 
         const { model, size } = await loadWindow();
         // model.position.x = (item.right.x - item.left.x) / 2;
         // model.position.y = item.height / 2;
-        model.position.x = item.width / 2;
-        model.position.y = item.height / 2;
+        // model.position.x = item.width / 2;
+        // model.position.y = item.height / 2;
         // model.position.z = item.position.z;
+        model.position.x = win.leftBottomPosition.left + win.width / 2;
+        model.position.y = win.leftBottomPosition.bottom + win.height / 2;
 
         model.scale.set(win.width / size.x, win.height / size.y, 1);
         // model.scale.setScalar(200);
         // scene.add(model);
+        wall.add(model);
+      });
+
+      item.doors?.forEach(async (door) => {
+        const path = new THREE.Path();
+
+        const { left, bottom } = door.leftBottomPosition;
+
+        path.moveTo(left, bottom);
+        path.lineTo(left + door.width, bottom);
+        path.lineTo(left + door.width, bottom + door.height);
+        path.lineTo(left, bottom + door.height);
+        path.lineTo(left, bottom);
+        shape.holes.push(path);
+
+        const { model, size } = await loadDoor();
+        model.scale.y = door.height / size.y;
+        model.scale.z = door.width / size.z;
+        model.rotateY(Math.PI / 2);
+        model.position.x = door.leftBottomPosition.left + door.width / 2;
+        model.position.y = door.leftBottomPosition.bottom + door.height / 2;
         wall.add(model);
       });
 
